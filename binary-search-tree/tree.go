@@ -72,6 +72,21 @@ func (tree *BinarySearchTree) Contains(value int) bool {
 	return tree.root.contains(value)
 }
 
+// Max finds the largest value contained in the tree (or 0 if there is nothing in the tree)
+func (tree *BinarySearchTree) Max() int {
+	if tree.root == nil { // if the tree is empty, default to a "maximum value" of 0
+		return 0
+	}
+
+	currentNode := tree.root // start at the root
+	for {                    // loop over nodes
+		if currentNode.right == nil { // if we are at the right-most node (a leaf)
+			return currentNode.data // ...then return the data because it is the largest
+		}
+		currentNode = currentNode.right // ...otherwise, move further right
+	}
+}
+
 // printTree runs an in-order traversal starting at the specified Node and indentationLevel
 func (n *Node) printTree(indentationLevel int) {
 	if n != nil { // if there is a node to print

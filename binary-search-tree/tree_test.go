@@ -34,3 +34,10 @@ func TestContains(t *testing.T) {
 		})
 	}
 }
+
+func TestMax(t *testing.T) {
+	maxVal := tree.Max()
+	if maxVal != 9 {
+		t.Errorf("expected Max to be 9, got %d\n", maxVal)
+	}
+}
