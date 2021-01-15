@@ -41,3 +41,10 @@ func TestMax(t *testing.T) {
 		t.Errorf("expected Max to be 9, got %d\n", maxVal)
 	}
 }
+
+func TestMin(t *testing.T) {
+	maxVal := tree.Min()
+	if maxVal != -10 {
+		t.Errorf("expected Min to be -10, got %d\n", maxVal)
+	}
+}

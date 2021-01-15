@@ -87,6 +87,21 @@ func (tree *BinarySearchTree) Max() int {
 	}
 }
 
+// Min finds the smallest value contained in the tree (or 0 if there is nothing in the tree)
+func (tree *BinarySearchTree) Min() int {
+	if tree.root == nil { // if the tree is empty, default to a "minimum value" of 0
+		return 0
+	}
+
+	currentNode := tree.root // start at the root
+	for {                    // loop over nodes
+		if currentNode.left == nil { // if we are at the left-most node (a leaf)
+			return currentNode.data // ...then return the data because it is the smallest
+		}
+		currentNode = currentNode.left // ...otherwise, move further left
+	}
+}
+
 // printTree runs an in-order traversal starting at the specified Node and indentationLevel
 func (n *Node) printTree(indentationLevel int) {
 	if n != nil { // if there is a node to print
