@@ -47,7 +47,7 @@ func (tree *BinarySearchTree) Insert(value int) {
 	}
 }
 
-// contains walks through the tree and determines if it contains a certain value
+// contains walks through the tree starting at a specified Node and determines if it or it's children contain value
 func (n *Node) contains(value int) bool {
 	// base case; if the current node has the data, then the tree contains the data
 	if value == n.data {
@@ -67,12 +67,10 @@ func (n *Node) contains(value int) bool {
 	}
 }
 
+// Contains walks through the tree and determines if it includes a certain value
 func (tree *BinarySearchTree) Contains(value int) bool {
 	return tree.root.contains(value)
 }
-
-// End basic methods
-// Start utils
 
 // printTree runs an in-order traversal starting at the specified Node and indentationLevel
 func (n *Node) printTree(indentationLevel int) {
